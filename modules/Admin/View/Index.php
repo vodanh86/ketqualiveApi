@@ -1,0 +1,1 @@
+<div class="page_width">Trang quản trị</div>

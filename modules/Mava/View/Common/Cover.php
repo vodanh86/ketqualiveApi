@@ -1,0 +1,3 @@
+<div id="cover">
+
+</div>

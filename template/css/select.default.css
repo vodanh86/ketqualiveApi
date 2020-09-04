@@ -1,0 +1,63 @@
+.st_ui_selector_cloned {
+	display: inline-block;
+	position: relative;
+}
+
+.st_ui_selector_cloned .wrapper_list {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 8;
+	display: none;
+    overflow: hidden;
+}
+
+.st_ui_selector_cloned .wrapper_list .item {
+	display: block;
+	white-space: nowrap;
+}
+
+.st_ui_selector_cloned .list {
+    position: relative;
+    width: 100%;
+
+}
+
+/* custom */
+.st_ui_selector_cloned .wrapper_list {
+	background-color: #fff;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.st_ui_selector_cloned .label {
+	color: #225599;
+    cursor: pointer;
+    border: 1px #dedede solid;
+    padding: 3px 10px;
+    background: #f4f4f4;
+}
+
+.st_ui_selector_cloned .label.active {
+	color: #ff6600;
+}
+
+.st_ui_selector_cloned .list .item {
+    white-space: nowrap;
+    padding: 4px 15px;
+    display: block;
+    color: #3A3A3B;
+    text-decoration: none;
+    font-weight: normal;
+    width: 100%;
+}
+
+.st_ui_selector_cloned .list .item.selected {
+    background: #ffffcc;
+}
+
+.st_ui_selector_cloned .list .item:hover {
+    background-color: #f0f2f5;
+    text-decoration: none;
+}

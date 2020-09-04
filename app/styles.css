@@ -1,0 +1,175 @@
+body {
+    font-family: Arial, Tahoma, Verdana;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.cor-inner {
+    background: #a11a03;
+    width: 80%;
+    height: 170%;
+    position: absolute;
+    top: -100%;
+    right: -20%;
+    border-radius: 10%;
+    transform: rotate(60deg);
+    z-index: 2;
+}
+
+.cor-outer {
+    background: #cb9da0;
+    width: 80%;
+    height: 170%;
+    position: absolute;
+    top: -99%;
+    right: -30%;
+    border-radius: 10%;
+    transform: rotate(60deg);
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 3;
+    width: 80%;
+    margin: 50px auto;
+}
+
+.logo {
+    margin: 0 0 50px 0;
+}
+
+.app-name {
+    font-size: 23px;
+    margin: 0 0 15px 0;
+}
+
+.app-desc {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.4;
+    max-width: 400px;
+}
+
+.download a {
+    opacity: .8;
+    margin: 0 15px 0 0;
+}
+
+.download a:hover {
+    opacity: 1;
+}
+
+.img-home,
+.img-xs {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    border: 10px solid #FFF;
+    box-shadow: 0 0 3px #000;
+    border-radius: 20px;
+    background: #FFF;
+}
+
+.img-home img,
+.img-xs img {
+    border-radius: 10px;
+}
+
+.img-xs {
+    top: 50px;
+    right: 150px;
+    z-index: 1;
+}
+
+.img-home {
+    z-index: 2;
+}
+
+.img-home:before,
+.img-xs:before {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 16px;
+    border-radius: 0 0 15px 15px;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 50px);
+    z-index: 3;
+    background: #FFF;
+}
+
+@media only screen and (max-width: 1024px) {
+    .content {
+        width: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+    }
+
+    .cor-inner {
+        width: 800px;
+        height: 1400px;
+        top: -850px;
+        right: -400px;
+        border-radius: 30px;
+    }
+
+    .cor-outer {
+        width: 800px;
+        height: 1400px;
+        top: -820px;
+        right: -450px;
+        border-radius: 30px;
+    }
+
+
+    .img-home img,
+    .img-xs img {
+        width: 180px;
+    }
+
+    .app-name {
+        font-size: 19px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .cor-inner {
+        width: 400px;
+        height: 800px;
+        top: -650px;
+        right: -400px;
+        border-radius: 30px;
+    }
+
+    .cor-outer {
+        width: 800px;
+        height: 800px;
+        top: -820px;
+        right: -450px;
+        border-radius: 30px;
+    }
+
+
+    .img-home,
+    .img-xs {
+        display: none;
+    }
+
+    .download {
+        text-align: center;
+    }
+}

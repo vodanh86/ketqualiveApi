@@ -1,0 +1,381 @@
+html, textarea, body, div, table, p, h1,
+h2, h3, h4, h5, h6, dl, dt, dd, fieldset, legend, tr, td, th,
+tbody, thead, tfoot, input, form, ul, ol, li {
+    margin: 0;
+    padding: 0;
+    font-family: arial, tahoma, verdana;
+}
+
+* {
+    outline: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.nav-item > a:hover {
+    color: #1A73E8 !important;
+    text-decoration: none !important;
+}
+
+.navbar {
+    background-color: white !important;
+    position: fixed !important;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.nav-item {
+    padding-right: 20px;
+}
+
+.nav-item > a {
+    font-size: 16px;
+    color: #000;
+}
+
+#top_menubar .nav-item.disabled > a {
+    color: #999;
+}
+
+.xs-logo img{
+    width: 125px;
+    padding-top: 12px !important;
+    padding-bottom: 0 !important;
+}
+
+.navbar-nav li.active > a {
+    color: #1A73E8 !important;
+    border-bottom: 2px solid #1A73E8;
+    margin-bottom: -1.1rem;
+    padding-bottom: 1.1rem;
+}
+
+.icon-user {
+    float: right !important;
+    padding-top: 3px;
+}
+
+.icon-user > .fa-user-circle:before {
+    font-size: 30px;
+}
+
+.nav-item .icon-menu-after {
+    display: none !important;
+}
+
+.icon-user > .fa-user-circle:before {
+    font-size: 30px;
+
+}
+
+.page-content {
+    background: #f6f6f6;
+    margin: 100px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.pg-title {
+    text-align: center;
+    font-size: 22px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.pg-content {
+    padding: 10px 20px 10px;
+}
+
+.tile_count .tile_stats_count:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 50px;
+    border-left: 2px solid #ADB2B5;
+    margin-top: 5px;
+}
+
+.tile_count {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.tile_count .tile_stats_count {
+    border-bottom: 1px solid #D9DEE4;
+    padding: 10px 10px 10px 20px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tile_count .tile_stats_count span {
+    font-size: 12px;
+}
+
+.tile_count .tile_stats_count .count {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.tile_count .tile_stats_count a {
+    color: #212529;
+}
+
+.tile_count .tile_stats_count a:hover {
+    color: #6f7479;
+    text-decoration: none;
+}
+
+.dropdown-item {
+    width: unset !important;
+}
+
+#footer {
+    color: #909090;
+    border-top: 1px solid #d4d4d4;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.tip-first {
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.block-remove {
+    color: red;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+}
+
+.block-remove>a, .block-remove>a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.block-add {
+    color: #007bff;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+}
+
+.block-add>a, .block-add>a:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.football-tip-content tr {
+    background: #eaeaea;
+}
+
+.football-tip-detail {
+    background: #fff;
+    padding: 15px;
+}
+
+.match-group {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+}
+
+.league-detail, .match-detail {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.league-detail{
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.match-detail {
+    text-align: center;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 10px 0px;
+}
+
+.league-name, .match-date {
+    font-weight: bold;
+}
+
+.home-vs-away {
+    color: #777;
+}
+
+.btn-add-tip {
+    color: #007bff;
+}
+
+@media (min-width: 992px){
+    .tile_count .tile_stats_count {
+        margin-bottom: 10px;
+        border-bottom: 0;
+        padding-bottom: 10px;
+    }
+}
+
+/*  style for mobile */
+@media only screen
+and (min-width: 320px)
+and (max-width: 768px) {
+    html, textarea, body, div, table, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, fieldset, legend, tr, td, th, tbody, thead, tfoot, input, form, ul, ol, li {
+        font-size: 13px;
+    }
+    /* STYLES GO HERE */
+    .hidden-mobile {
+        display: none !important;
+    }
+
+    .navbar {
+        padding: 0 !important;
+    }
+
+    .navbar .logo-title {
+        padding: 6px 12px !important;
+    }
+
+    .navbar-toggler {
+        margin-right: 12px;
+    }
+
+    li:hover {
+        background: #ccc;
+    }
+
+    .nav-item {
+        padding-left: 12px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid #e9e9e9;
+    }
+
+    .navbar-nav li > a, .nav-item > a:hover {
+        color: #666 !important;
+    }
+
+    .navbar-nav li.active > a {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding: 6px 0;
+    }
+
+    .account-dropdown {
+        margin-bottom: 12px !important;
+    }
+
+    .nav-item .icon-menu-before {
+        width: 30px;
+        text-align: center;
+    }
+
+    .nav-item .icon-menu-after {
+        float: right;
+        display: block !important;
+        padding-top: 3px;
+    }
+
+    .nav-item li.active .nav-link {
+        padding: 6px 12px;
+    }
+}
+
+@media only screen
+and (min-width: 768px)
+and (max-width: 812px) {
+    html, textarea, body, div, table, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, fieldset, legend, tr, td, th, tbody, thead, tfoot, input, form, ul, ol, li {
+        font-size: 13px;
+    }
+    .hidden-mobile {
+        display: none !important;;
+    }
+
+    .navbar {
+        padding: 0 !important;
+    }
+
+    .navbar .logo-title {
+        padding: 6px 12px !important;
+    }
+
+    .navbar-toggler {
+        margin-right: 12px;
+    }
+
+    li:hover {
+        background: #ccc;
+    }
+
+    .nav-item {
+        padding-left: 12px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid #e9e9e9;
+    }
+
+    .navbar-nav li > a, .nav-item > a:hover {
+        color: #666 !important;
+    }
+
+    .navbar-nav li.active > a {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding: 6px 0;
+    }
+
+    .account-dropdown {
+        margin-bottom: 12px !important;
+    }
+
+    .nav-item .icon-menu-before {
+        width: 30px;
+        text-align: center;
+    }
+
+    .nav-item .icon-menu-after {
+        float: right;
+        display: block !important;
+        padding-top: 3px;
+    }
+
+    .nav-item li.active .nav-link {
+        padding: 6px 12px;
+    }
+}
+
+/*  style for ipad */
+@media only screen
+and (min-width: 812px)
+and (max-width: 1024px) {
+
+    .nav-item {
+        padding-right: 5px;
+    }
+
+    .navbar-nav li.active > a {
+        margin-bottom: -10px;
+        padding-bottom: 15px;
+    }
+}
+
+.dataTables_wrapper {
+    position: relative;
+    clear: both;
+    zoom: 1;
+}
+.dataTables_wrapper>.row {
+    overflow: auto!important;
+    width: 100%;
+    margin: 0;
+}
+
+.required {
+    color: red;
+}

@@ -1,0 +1,1 @@
+<div class="mbd-footer">© <?php echo date('Y') ." ". __('site_name'); ?></div>
