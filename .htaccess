@@ -1,0 +1,19 @@
+Options FollowSymLinks
+Options -Indexes
+
+php_flag display_errors on
+
+ErrorDocument 401 /401.html
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+ErrorDocument 504 /504.html
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} -f [OR]
+	RewriteCond %{REQUEST_FILENAME} -l [OR]
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteRule ^(app/|view/|bang/|mb2/|lp/|ep/|dba/|data/|css/|html/|template/|tmp/|favicon\.ico|crossdomain\.xml|robots\.txt) - [NC,L]
+	RewriteRule ^.*$ index.php [NC,L]
+</IfModule>
