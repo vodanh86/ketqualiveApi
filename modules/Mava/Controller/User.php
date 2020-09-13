@@ -59,6 +59,7 @@ class Mava_Controller_User extends Mava_Controller {
                         'custom_title'     => $viewParams['fullname'],
                         'language_id'     => $language_id,
                         'timezone'     => $timezone,
+                        'token'         => $viewParams['phone'],
                         'active_code' => $active_code,
                         'is_active' => $is_active
                     )
@@ -290,6 +291,7 @@ class Mava_Controller_User extends Mava_Controller {
                         'custom_title'     => $viewParams['fullname'],
                         'language_id'     => $language_id,
                         'timezone'     => $timezone,
+                        'token'         => $viewParams['phone'],
                         'active_code' => $active_code,
                         'is_active' => $is_active
                     )

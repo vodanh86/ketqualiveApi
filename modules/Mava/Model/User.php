@@ -126,6 +126,7 @@ class Mava_Model_User extends Mava_Model
             `user_group_id`,
             `city_id`,
             `birthday`,
+            `token`,
             `register_date`,
             `last_activity`
             ) VALUE(
@@ -142,6 +143,7 @@ class Mava_Model_User extends Mava_Model
                 '" . $userGroupID . "',
                 '" . (isset($data['city_id'])?(int)$data['city_id']:0) . "',
                 '" . (isset($data['birthday'])?(int)$data['birthday']:0) . "',
+                '" . addslashes($data['token']) . "',
                 '" . time() . "',
                 '" . time() . "'
             )");
