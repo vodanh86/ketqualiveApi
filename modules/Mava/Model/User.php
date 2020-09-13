@@ -148,8 +148,8 @@ class Mava_Model_User extends Mava_Model
 
             $userID = $this->_getDb()->getLastId();
             if ($userID > 0) {
-                $agencyModel = $this->_getAgencyModel();
-                $agencyModel->createUserDefaultAgency($userID);
+                #$agencyModel = $this->_getAgencyModel();
+                #$agencyModel->createUserDefaultAgency($userID);
                 return $userID;
             } else {
                 return false;
