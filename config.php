@@ -100,7 +100,7 @@ $config = array();
         'ket-qua-xo-so-vinh-long-ngay-{day:number}-{month:number}-{year:number}' => ['action' => 'Index_Controller_Index/index','params' => ['pv' => 'vl']],
         'ket-qua-xo-so-vung-tau-ngay-{day:number}-{month:number}-{year:number}' => ['action' => 'Index_Controller_Index/index','params' => ['pv' => 'vt']],
         
-        
+        'nap-tien' => ['action' => 'Topup_Controller_Index/index','params' =>['pv' => 'tt']],
         'ket-qua-xo-so-truyen-thong' => ['action' => 'Loto_Controller_Index/result','params' =>['pv' => 'tt']],
         'ket-qua-xo-so-truyen-thong-tu-ngay-{from:any}-den-ngay-{to:any}' => ['action' => 'Loto_Controller_Index/result','params' => ['pv' => 'tt']], 
         'ket-qua-xo-so-binh-dinh' => ['action' => 'Loto_Controller_Index/result','params' =>['pv' => 'bd']],
