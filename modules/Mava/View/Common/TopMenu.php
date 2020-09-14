@@ -107,6 +107,9 @@
                         <a class="dropdown-item" href="'. Mava_Url::getPageLink('thong-ke-theo-ngay') .'">Thống kê theo ngày</a>
                         <a class="dropdown-item" href="'. Mava_Url::getPageLink('ket-qua-giai-dac-biet-cho-ngay-mai') .'">Kết quả giải Đặc Biệt cho ngày mai</a>-->
                     </div>
+            </li>
+            <li>
+                    <a href="'. Mava_Url::getPageLink('nap-tien') .'">Nạp tiền</a>
             </li>';
             $menu_selected = Mava_Url::getCurrentAddress();
             $menus = get_menus();
