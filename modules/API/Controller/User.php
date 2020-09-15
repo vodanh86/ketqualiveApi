@@ -361,7 +361,7 @@ class API_Controller_User extends API_Controller {
             if(!$result){
                 return $this->responseError("cộng tiền thất bại", []);
             }
-            return $this->responseSuccess("cộng tiền thành công", [$result]);
+            return $this->responseSuccess("cộng tiền thành công", [$result, $postData]);
         } else {
             return $this->responseError("Có lỗi xảy ra", []);
         }
