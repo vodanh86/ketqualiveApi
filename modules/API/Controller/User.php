@@ -361,7 +361,7 @@ class API_Controller_User extends API_Controller {
             if(!$result){
                 return $this->responseError("cộng tiền thất bại", []);
             }
-            return $this->responseSuccess("cộng tiền thành công", []);
+            return $this->responseSuccess("cộng tiền thành công", [$result]);
         } else {
             return $this->responseError("Có lỗi xảy ra", []);
         }
@@ -376,7 +376,7 @@ class API_Controller_User extends API_Controller {
                 break;
             }
         }
-        return $amount/$max*($topup[$max]);
+        return floor($amount/$max*($topup[$max]));
     }
 
     public function uploadImageAction(){
