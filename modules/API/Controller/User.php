@@ -341,6 +341,44 @@ class API_Controller_User extends API_Controller {
         }
     }
 
+    public function addCoinAction(){
+        if(Mava_Url::isPost()) {
+            $postData = Mava_Url::getParams();
+            if(!isset($postData['transaction_id']) || trim($postData['transaction_id']) == "") {
+                return $this->responseError("Mã giao dịch là bắt buộc", []);
+            }
+            if(!isset($postData['number']) || trim($postData['number']) == "") {
+                return $this->responseError("Số điện thoại là bắt buộc", []);
+            }
+            if(!isset($postData['amount']) || trim($postData['amount']) == "") {
+                return $this->responseError("Số tiền là bắt buộc", []);
+            }
+            if(!isset($postData['time']) || trim($postData['time']) == "") {
+                return $this->responseError("thời gian là bắt buộc", []);
+            }
+            $postData["coin"] = $this->moneyToCoin($postData["amount"]);
+            $result = $this->_getUserModel()->increaseCoin($postData);
+            if(!$result){
+                return $this->responseError("cộng tiền thất bại", []);
+            }
+            return $this->responseSuccess("cộng tiền thành công", []);
+        } else {
+            return $this->responseError("Có lỗi xảy ra", []);
+        }
+    }
+
+    public function moneyToCoin($amount){
+        $topup = Mava_Application::get('config/topup');
+        $max = 0;
+        foreach($topup as $key=>$value){
+            $max = $key;
+            if ($value > $amount) {
+                break;
+            }
+        }
+        return $amount/$max*($topup[$max]);
+    }
+
     public function uploadImageAction(){
         if(Mava_Url::isPost()) {
             $postData = Mava_Url::getParams();

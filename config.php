@@ -269,6 +269,15 @@ $config = array();
 
     $config['passwordMinLength'] = 5;
     $config['passwordMaxLength'] = 32;
+    $config['topup'] = array(
+        2000 => 3000,
+        5000 => 9000,
+        10000 => 20000,
+        20000 => 45000,
+        30000 => 70000,
+        50000 => 150000,
+        100000 => 350000
+    );
 
     $config['defaultTimeZone'] = 'Asia/Bangkok';
 

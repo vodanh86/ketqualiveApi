@@ -365,6 +365,73 @@ class API_Model_User extends Mava_Model_User
         return $this->_getTransactionsModel()->updateTransactionStatus($code, $status);
     }
 
+    public function increaseCoin($data){
+        $user = $this->getUserByPhone($data["number"], false);
+        if(!$user){
+            return [
+                'error' => 1,
+                'message' => 'Không tồn tại thành viên'
+            ];
+        }
+        $coin = $user['coin'];
+        $dataUpdate = [
+            'coin' => $coin + $data['coin']
+        ];
+        $result = $this->updateUser($user["user_id"], $dataUpdate);
+        if($result['error'] == 0){
+            // save activity log
+            $activityLog = [
+                'activity' => json_encode([
+                    'user_id' => $user["user_id"],
+                    'custom_title' => $user['custom_title'],
+                    'coin' => $data['coin'],
+                    'type' => 'congcoin',
+                ])
+            ];
+            return [
+                'error' => 0,
+                'message' => 'Cộng coin thành công',
+                'data' => [
+                    'user_id' => $user["user_id"],
+                    'coin' => $user['coin']
+                ]
+            ];
+        }
+        return $result;
+    }
+
+    public function updateUser($userId, $data){
+        $userDW = $this->_getUserDataWriter();
+        $userDW->setExistingData($userId);
+        $data = array_filter_key($data, [
+                "cover",
+                "avatar",
+                "coin",
+                "custom_title",
+                "phone",
+                "email",
+                "password",
+                "birthday",
+                "gender",
+                "is_supervip",
+                "expired_vip",
+                "lock_account"
+            ]);
+        $userDW->bulkSet($data);
+        if($userDW->save()) {
+            return [
+                'error' => 0,
+                'data' => $this->getUserById($userId)
+            ];
+        } else {
+            return [
+                'error' => 1,
+                'message' => 'Không lưu được thông tin',
+                'data' => $userDW->getErrors()
+            ];
+        }
+    }
+
     public function _buyVip($data){
         $user = $this->_getByToken($data['token']);
         if($user) {
