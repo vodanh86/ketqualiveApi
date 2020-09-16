@@ -213,7 +213,8 @@ class Manager_Model_Manager extends Mava_Model
                 cl.coin_change,
                 cl.coin_before,
                 cl.coin_after,
-                cl.created_at
+                cl.created_at,
+                cl.type
             FROM #__coin_logs cl
             LEFT JOIN #__user u
             ON u.`token` = cl.`token`
