@@ -29,7 +29,7 @@ class API_Model_User extends Mava_Model_User
                 LEFT JOIN (
                     SELECT token as tk, SUM(coin_change) as coin_charge
                     FROM #__coin_logs
-                    WHERE type='napthe'
+                    WHERE (type='napthe' OR type='napmomo')
                 ) cl ON cl.`tk` = u.`token`
                 LEFT JOIN (
                     SELECT token as flwtk, GROUP_CONCAT(ufl.`user_id`) as following
@@ -388,10 +388,21 @@ class API_Model_User extends Mava_Model_User
                     'type' => 'congcoin',
                 ])
             ];
+
+            //save coin log
+            $coinLog = [
+                'token' => $user['token'],
+                'coin_before'=> $coin,
+                'coin_change'=> $data['coin'],
+                'coin_after'=> $data['coin'] + $coin,
+                'type'=> 'napmomo',
+            ];
+            $this->_getCoinLogsModel()->saveLog($coinLog);
             return [
                 'error' => 0,
                 'message' => 'Cộng coin thành công',
                 'data' => [
+                    'token' => $user["token"],
                     'user_id' => $user["user_id"],
                     'coin' => $user['coin']
                 ]
@@ -558,7 +569,7 @@ class API_Model_User extends Mava_Model_User
             LEFT JOIN (
                 SELECT token as tk, SUM(coin_change) as coin_charge
                 FROM #__coin_logs
-                WHERE type='napthe'
+                WHERE (type='napthe' OR type='napmomo')
             ) cl ON cl.`tk` = u.`token`
             WHERE u.`user_id` IN (". Mava_String::doImplode($data['ids']) .")");
         return $users->rows;

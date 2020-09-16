@@ -63,7 +63,7 @@ class Manager_Model_Manager extends Mava_Model
 		$chargedCoin = $this->_getDb()->fetchRow("
 			SELECT SUM(coin_change) as charged_coin
 			FROM #__coin_logs
-			WHERE type='napthe' AND FROM_UNIXTIME(created_at, '%d-%m-%Y') ='". $curentTime ."'
+			WHERE (type='napthe' OR type='napmomo') AND FROM_UNIXTIME(created_at, '%d-%m-%Y') ='". $curentTime ."'
 		");
 		$statisticalCoin = [
 			'coin_change' => $coin['coin_change'],
@@ -217,7 +217,7 @@ class Manager_Model_Manager extends Mava_Model
             FROM #__coin_logs cl
             LEFT JOIN #__user u
             ON u.`token` = cl.`token`
-            WHERE  cl.`type` = 'napthe' ". $where ."
+            WHERE  (cl.`type` = 'napthe' OR cl.`type` = 'napmomo') ". $where ."
             ORDER BY
                 ".$order."
             LIMIT
@@ -228,7 +228,7 @@ class Manager_Model_Manager extends Mava_Model
 			FROM #__coin_logs cl
 			LEFT JOIN #__user u
             ON u.`token` = cl.`token`
-			WHERE  cl.`type` = 'napthe' ". $where ."
+			WHERE ( cl.`type` = 'napthe' OR cl.`type` = 'napmomo') ". $where ."
         ");
         return array(
             'rows' => $items,
@@ -261,7 +261,7 @@ class Manager_Model_Manager extends Mava_Model
             FROM #__coin_logs cl
             LEFT JOIN #__user u
             ON u.`token` = cl.`token`
-            WHERE  cl.`type` NOT IN ('chuyencoin', 'nhancoin', 'napthe') ". $where ."
+            WHERE  cl.`type` NOT IN ('chuyencoin', 'nhancoin', 'napthe', 'napmomo') ". $where ."
             ORDER BY
                 ".$order."
             LIMIT

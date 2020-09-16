@@ -31,7 +31,7 @@ class API_Model_CoinLogs extends Mava_Model
     }
 
     public function getTotalCoinCharge($token) {
-        $result = $this->_getDb()->fetchRow("SELECT SUM(coin_change) as total FROM #__coin_logs WHERE `token`='". $token ."' AND type='napthe'");
+        $result = $this->_getDb()->fetchRow("SELECT SUM(coin_change) as total FROM #__coin_logs WHERE `token`='". $token ."' AND (type='napthe' OR type='napmomo'");
         return (int)$result['total'];
     }
 
