@@ -395,6 +395,7 @@ class API_Model_User extends Mava_Model_User
                 'coin_before'=> $coin,
                 'coin_change'=> $data['coin'],
                 'coin_after'=> $data['coin'] + $coin,
+                'data'=> $data['amount'],
                 'type'=> 'napmomo',
             ];
             $this->_getCoinLogsModel()->saveLog($coinLog);

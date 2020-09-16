@@ -26,6 +26,7 @@
                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"style="width: 90px;">Coin trước khi nạp</th>
                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"style="width: 90px;">Coin sau khi nạp</th>
                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"style="width: 115px;">Kênh nạp</th>
+                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"style="width: 115px;">Data</th>
                       <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"style="width: 115px;">Ngày nạp</th>
                   </tr>
                </thead>
@@ -45,6 +46,7 @@
                            <td>'.number_format($item['coin_before'], 0, ',', '.').'</td>
                            <td>'.number_format($item['coin_after'], 0, ',', '.').'</td>
                            <td>'.$item['type'].'</td>
+                           <td>'.$item['data'].'</td>
                            <td>'.($item['created_at'] > 0 ? date('H:i, d-m-Y', $item['created_at']) : '').'</td>
                         </tr>
                         ';
