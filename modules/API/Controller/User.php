@@ -19,6 +19,24 @@ class API_Controller_User extends API_Controller {
         }
 	}
 
+    public function fbloginAction(){
+        if(Mava_Url::isPost()) {
+    		$postData = Mava_Url::getParams();
+            if(!isset($postData['email']) || trim($postData['email']) == "") {
+                return $this->responseError("Email là bắt buộc", [$postData]);
+            }
+    		$userModel = $this->_getUserModel();
+    		$user = $userModel->getUserByEmail($postData['email']);
+    		if(!$user) {
+                $userModel->register($postData);
+            } 
+            $user = $userModel->_doLogin($postData['id']);
+    		return $this->responseSuccess("Đăng nhập thành công", $user);
+        } else {
+            return $this->responseError("Có lỗi xảy ra", []);
+        }
+    }
+    
     public function loginByEmailAction(){
         if(Mava_Url::isPost()) {
             $postData = Mava_Url::getParams();
@@ -97,7 +115,7 @@ class API_Controller_User extends API_Controller {
 	}
 
 	public function chargeAction(){
-        return $this->responseSuccess('OK', ['code' => '123']);
+        return $this->responseSuccess('OK', ['code' => '123567']);
         if(Mava_Url::isPost()) {
             $postData = Mava_Url::getParams();
             if(!isset($postData['telcoId']) || trim($postData['telcoId']) == "") {

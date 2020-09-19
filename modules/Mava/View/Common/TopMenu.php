@@ -109,7 +109,7 @@
                     </div>
             </li>
             <li>
-                    <a href="'. Mava_Url::getPageLink('nap-tien') .'">Nạp tiền</a>
+                    <a href="'. Mava_Url::getPageLink('nap-tien') .'">Nạp ngân lượng</a>
             </li>';
             $menu_selected = Mava_Url::getCurrentAddress();
             $menus = get_menus();

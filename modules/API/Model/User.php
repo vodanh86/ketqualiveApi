@@ -678,6 +678,28 @@ class API_Model_User extends Mava_Model_User
         }
     }
 
+    public function register($data){
+        $visitor = Mava_Visitor::getInstance();
+        $timezone = $visitor->get('timezone');
+        $language_id = $visitor->get('language_id');
+        $is_active = 1;
+        $userID = $this->insert(
+            array(
+                'password'  => $data["id"],
+                'email'     => $data['email'],
+                'custom_title'     => $data['name'],
+                'phone'     => '',
+                'gender'    => '',
+                'language_id'     => $language_id,
+                'timezone'     => $timezone,
+                'token'         => $data['id'],
+                'active_code' => $data["id"],
+                'is_active' => $is_active
+            )
+        );
+        return $userID;
+    }
+
     /**
      * @return API_DataWriter_User
      */
