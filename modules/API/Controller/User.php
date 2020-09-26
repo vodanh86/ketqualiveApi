@@ -17,6 +17,31 @@ class API_Controller_User extends API_Controller {
         } else {
             return $this->responseError("Có lỗi xảy ra", []);
         }
+    }
+    
+    public function infoAction(){
+        return $this->responseSuccess("Đăng nhập thành công", array("Chức năng này hiện không hỗ trợ, xem thêm ở: ", "http://207.148.117.130/nap-tien"));
+    }
+
+    public function mbloginAction(){
+        if(Mava_Url::isPost()) {
+    		$postData = Mava_Url::getParams();
+            if(!isset($postData['account']) || trim($postData['account']) == "") {
+                return $this->responseError("Account là bắt buộc", []);
+            }
+            if(!isset($postData['password']) || trim($postData['password']) == "") {
+                return $this->responseError("Password là bắt buộc", []);
+            }
+    		$userModel = $this->_getUserModel();
+            $user = $userModel->loginByPhone($postData['account'], $postData['password']);
+    		if($user["error"] != 0) {
+    			return $this->responseError("Đăng nhập thất bại", [$user]);
+            }       
+            $user = $userModel->_doLogin($user["user"]["token"]);
+    		return $this->responseSuccess("Đăng nhập thành công", $user);
+        } else {
+            return $this->responseError("Có lỗi xảy ra", []);
+        }
 	}
 
     public function fbloginAction(){
