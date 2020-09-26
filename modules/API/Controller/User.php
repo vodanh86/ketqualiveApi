@@ -44,6 +44,29 @@ class API_Controller_User extends API_Controller {
         }
 	}
 
+    public function mbRegisterAction(){
+        if(Mava_Url::isPost()) {
+    		$postData = Mava_Url::getParams();
+            if(!isset($postData['account']) || trim($postData['account']) == "") {
+                return $this->responseError("Account là bắt buộc", []);
+            }
+            if(!isset($postData['password']) || trim($postData['password']) == "") {
+                return $this->responseError("Password là bắt buộc", []);
+            }
+            $userModel = $this->_getUserModel();
+            $user = $userModel->getUserByPhone($postData['account']);
+    		if(!$user) {
+                $user_id = $userModel->registerByPhone($postData);
+            } else {
+                return $this->responseError("Tài khoản đã tồn tại", []);
+            }
+            $result = $userModel->loginByPhone($postData['account'], $postData['password']);
+            return $this->responseSuccess("Đăng nhập thành công", $result['user']);
+        } else {
+            return $this->responseError("Có lỗi xảy ra", []);
+        }
+    }
+    
     public function fbloginAction(){
         if(Mava_Url::isPost()) {
     		$postData = Mava_Url::getParams();

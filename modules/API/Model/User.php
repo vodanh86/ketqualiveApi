@@ -700,6 +700,27 @@ class API_Model_User extends Mava_Model_User
         return $userID;
     }
 
+    public function registerByPhone($data){
+        $visitor = Mava_Visitor::getInstance();
+        $timezone = $visitor->get('timezone');
+        $language_id = $visitor->get('language_id');
+        $is_active = 1;
+        $userID = $this->insert(
+            array(
+                'password'  => $data["password"],
+                'email'     => $data['account']."@gmail.com",
+                'custom_title'     => $data['account'],
+                'phone'     => $data['account'],
+                'gender'    => '',
+                'language_id'     => $language_id,
+                'timezone'     => $timezone,
+                'token'         => $data['account'],
+                'active_code' => $data["account"],
+                'is_active' => $is_active
+            )
+        );
+        return $userID;
+    }
     /**
      * @return API_DataWriter_User
      */
