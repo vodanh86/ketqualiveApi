@@ -135,7 +135,7 @@ class Admin_Controller_Videos extends Mava_AdminController {
                 'title' => Mava_Url::getParam('title'),
                 'second' => 300,
                 'token' => "12",
-                'youtube_id' => (int)Mava_Url::getParam('youtubeId'),
+                'youtube_id' => Mava_Url::getParam('youtubeId'),
                 'view' => 0,
                 'created_by' => 1
             );
