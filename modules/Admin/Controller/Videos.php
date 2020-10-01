@@ -137,7 +137,7 @@ class Admin_Controller_Videos extends Mava_AdminController {
                 'token' => "12",
                 'youtube_id' => (int)Mava_Url::getParam('youtubeId'),
                 'view' => 0,
-                'created_by' => 0
+                'created_by' => 1
             );
 
             $userID = $userModel->insert($videoData);
