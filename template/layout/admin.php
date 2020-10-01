@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="<?php echo Mava_View::getCssUrl('dateranger/daterangepicker'); ?>" />
     <script type="text/javascript" src="<?php echo Mava_Url::getPageLink('admin-phrase.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo Mava_View::getJsUrl('global'); ?>"></script>
+    <script type="text/javascript" src="<?php echo Mava_View::getJsUrl('popper.min'); ?>"></script>
     <script type="text/javascript" src="<?php echo Mava_View::getJsUrl('bootstrap/js/bootstrap.min'); ?>"></script>
     <script type="text/javascript" src="<?php echo Mava_View::getJsUrl('app'); ?>"></script>
     <script type="text/javascript" src="<?php echo Mava_View::getJsUrl('highcharts/highcharts'); ?>"></script>

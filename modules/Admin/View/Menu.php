@@ -30,6 +30,14 @@
                 <a class="item" href="<?php echo Mava_Url::buildLink('admin/users/group'); ?>"><?php echo __('user_group'); ?></a>
             </div>
         </li>
+        <li class="st_ui_dropdown inline mousehover">
+            <a href="javascript:void(0);" class="label">
+                <?php echo __('admin_videos'); ?><s class="icon_white_down"></s>
+            </a>
+            <div class="list">
+                <a class="item" href="<?php echo Mava_Url::buildLink('admin/videos/index'); ?>"><?php echo __('all_videos'); ?></a>
+            </div>
+        </li>
         <?php if(is_debug() === 2){ ?>
             <li class="st_ui_dropdown inline mousehover">
                 <a href="javascript:void(0);" class="label">

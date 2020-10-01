@@ -32,6 +32,31 @@ class API_Model_Video extends Mava_Model
         }
     }
 
+    public function getPageList($skip = 0, $limit = 10){
+        $where = '';
+        $subscribes = $this->_getDb()->fetchAll("SELECT * FROM #__video ". $where ." ORDER BY `id` DESC LIMIT ". $skip .','. $limit);
+        $count = $this->_getDb()->fetchRow("SELECT COUNT(*) AS 'total' FROM #__video ". $where);
+        return array(
+            'items' => $subscribes,
+            'total' => $count['total']
+        );
+    }
+
+
+    public function getById($id){
+        return $this->_getDb()->fetchRow("SELECT * FROM #__video WHERE `id`=". (int)$id);
+    }
+
+    public function deleteById($id){
+        return $this->_getDb()->delete('#__video','id='. "'".$id."'");
+    }
+
+    public function insert($data){
+        return $this->_getDb()->query('
+        INSERT INTO #__video(`title`,`second`,`token`,`youtube_id`,`view`, `created_by`) VALUES("'. implode('","', $data) .'") 
+    ');
+    }
+
     /**
      * @return API_Model_User
      */
