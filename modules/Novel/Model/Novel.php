@@ -118,13 +118,15 @@ class Novel_Model_Novel extends Mava_Model {
 
     
     public function getViewById($skip = 0, $limit = 10, $id = 0, $searchTerm = ''){
-        $sql = "SELECT * FROM #__chapter WHERE `novel_id`=". (int)$id. " LIMIT ".$skip.",".$limit;
+        $sql = "SELECT * FROM #__chapter WHERE `novel_id`=". (int)$id. "  ORDER BY `order` LIMIT ".$skip.",".$limit;
         $post = $this->_getDb()->fetchAll($sql);
         $count = $this->_getDb()->fetchRow("
             SELECT
                 COUNT(*) AS 'total'
             FROM
                 #__chapter n
+            WHERE
+                `novel_id` =".(int)$id." 
         ");
         return array(
             'rows' => $post,
@@ -149,7 +151,7 @@ class Novel_Model_Novel extends Mava_Model {
         return $this->_getDb()->delete('#__chapter','id='. "'".$id."'");
     }
 
-    public function editNovel($novelId, $novelName, $novelDescription, $novelImage, $novelAuthor, $novelCategoryId){
+    public function editNovel($novelId, $novelName, $novelDescription, $novelImage, $novelAuthor, $novelCategoryId, $novelStart, $novelView){
         $db = $this->_getDb();
         if($novelId>0){
             $db->query("UPDATE #__novel
@@ -158,7 +160,9 @@ class Novel_Model_Novel extends Mava_Model {
             `description`='". addslashes($novelDescription) ."',
             `image`='". addslashes($novelImage) ."',
             `author`='". addslashes($novelAuthor) ."',
-            `category_id`='". addslashes($novelCategoryId) ."'
+            `category_id`='". addslashes($novelCategoryId) ."',
+            `start`=". $novelStart .",
+            `view`=". $novelView ."
              WHERE
              `id`='". $novelId ."'");
             return true;

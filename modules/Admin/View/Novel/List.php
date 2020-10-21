@@ -17,6 +17,8 @@
             <th><?php echo __('title'); ?></th>
             <th><?php echo __('author'); ?></th>
             <th><?php echo __('category'); ?></th>
+            <th><?php echo __('view'); ?></th>
+            <th><?php echo __('start'); ?></th>
             <th><?php echo __('delete'); ?></th>
             <th><?php echo __('edit'); ?></th>
             <th><?php echo __('view'); ?></th>
@@ -33,6 +35,8 @@
             <td title="'. __('name') .': '. $item['name'] .'">'. $item['name'] .'</td>
             <td>'. htmlspecialchars($item['author']) .'</td>
             <td>'. htmlspecialchars($item['category_id']) .'</td>
+            <td>'. htmlspecialchars($item['view']) .'</td>
+            <td>'. htmlspecialchars($item['start']) .'</td>
             <td width="50" align="center"><a href="javascript:void(0);" user-id="'. $item['id'] .'" user-email="'. htmlspecialchars($item['id']) .'" user-title="'. htmlspecialchars($item['name']) .'" class="button_delete_user">'. __('delete') .'</a></td>
             <td width="50"><a href="'. Mava_Url::buildLink('admin/novel/edit',array('novelId' => $item['id'])) .'">'. __('edit') .'</a></td>
             <td width="50"><a href="'. Mava_Url::buildLink('admin/novel/view',array('novelId' => $item['id'])) .'">'. __('view') .'</a></td>

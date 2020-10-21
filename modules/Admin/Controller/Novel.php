@@ -202,6 +202,8 @@ class Admin_Controller_Novel extends Mava_AdminController {
         $novelImage = Mava_Url::getParam('novelImage');
         $novelAuthor = Mava_Url::getParam('novelAuthor');
         $novelCategory = Mava_Url::getParam('novelCategory');
+        $novelStart = Mava_Url::getParam('novelStart');
+        $novelView = Mava_Url::getParam('novelView');
         $languageModel = $this->_getVideoModel();
         $data = array();
         $language = $languageModel->getById($novelId);
@@ -222,7 +224,9 @@ class Admin_Controller_Novel extends Mava_AdminController {
                 $novelDescription,
                 $novelImage,
                 $novelAuthor,
-                $novelCategory
+                $novelCategory,
+                $novelStart,
+                $novelView             
             );
             if($check){
                 $data = array(

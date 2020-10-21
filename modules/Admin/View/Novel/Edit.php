@@ -36,6 +36,18 @@
                 </dt>
                 <dd><input type="text" class="input_text input_medium" name="novelCategory" value="<?php echo htmlspecialchars($language['category_id']); ?>" id="novelCategory" /></dd>
             </dl>
+         <dl class="row">
+                <dt>
+                    <?php echo __('novel_view'); ?>
+                </dt>
+                <dd><input type="text" class="input_text input_medium" name="novelView" value="<?php echo htmlspecialchars($language['view']); ?>" id="novelView" /></dd>
+            </dl>   
+            <dl class="start">
+                <dt>
+                    <?php echo __('novel_start'); ?>
+                </dt>
+                <dd><input type="text" class="input_text input_medium" name="novelStart" value="<?php echo htmlspecialchars($language['start']); ?>" id="novelStart" /></dd>
+            </dl>
             <dl class="row mava_form_action">
                 <dt>&nbsp;</dt>
                 <dd>
